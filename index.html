@@ -44,15 +44,54 @@
     .btn:hover {
       background-color: #0056b3;
     }
+    /* --- Dark Mode Styles --- */
+    body.dark {
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+    }
+    body.dark .card {
+      background: #2a2a40;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    body.dark h1 {
+      color: #ffffff;
+    }
+    body.dark p {
+      color: #bbb;
+    }
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 14px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    body.dark .toggle-btn {
+      background: #333;
+      color: #fff;
+      border-color: #555;
+    }
   </style>
 </head>
 <body>
-
+    <button class="toggle-btn" id="themeToggle">🌙 Toggle Dark Mode</button>
   <div class="card">
     <h1>Welcome!</h1>
     <p>Thanks for stopping by. We're glad to have you here.</p>
     <a href="#get-started" class="btn">Get Started</a>
   </div>
-
+<script>
+    const toggleBtn = document.getElementById('themeToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      toggleBtn.textContent = document.body.classList.contains('dark') 
+        ? '☀️ Toggle Light Mode' 
+        : '🌙 Toggle Dark Mode';
+    });
+  </script>
 </body>
 </html>
